@@ -15,8 +15,8 @@ import lombok.NoArgsConstructor;
 @Builder
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private Long UUID;
     @NotBlank(message = "Full name is required")
     private String fullName;
 

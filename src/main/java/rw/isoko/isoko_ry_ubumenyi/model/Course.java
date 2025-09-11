@@ -17,8 +17,8 @@ import java.util.List;
 public class Course {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private Long UUID;
 
     @NotBlank(message = "Course title is required")
     private String title;
