@@ -5,8 +5,10 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @Entity
+@Table(name = "questions")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -15,7 +17,7 @@ public class Question {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private Long UUID;
+    private UUID id;
 
     @NotBlank(message = "Question text is required")
     private String text;

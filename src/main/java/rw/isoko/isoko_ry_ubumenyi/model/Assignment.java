@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Entity
 @Table(name = "assignments")
@@ -16,7 +17,7 @@ public class Assignment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private Long UUID;
+    private UUID id;
 
     @NotBlank(message = "Title is required")
     private String title;

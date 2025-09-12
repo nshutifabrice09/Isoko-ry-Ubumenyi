@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Table(name = "courses")
@@ -19,7 +20,7 @@ public class Course {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private Long UUID;
+    private UUID id;
 
     @NotBlank(message = "Course title is required")
     private String title;

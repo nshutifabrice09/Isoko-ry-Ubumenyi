@@ -4,7 +4,10 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
+import java.util.UUID;
+
 @Entity
+@Table(name = "lessons")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -13,7 +16,7 @@ public class Lesson {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private Long UUID;
+    private UUID id;
 
     @NotBlank(message = "Lesson title is required")
     private String title;

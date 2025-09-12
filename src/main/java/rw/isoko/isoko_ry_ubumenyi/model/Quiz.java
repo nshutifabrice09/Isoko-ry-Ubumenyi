@@ -4,8 +4,10 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @Entity
+@Table(name = "quizzes")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -14,8 +16,7 @@ public class Quiz {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private Long UUID;
-
+    private UUID id;
     private String title;
 
     @ManyToOne
