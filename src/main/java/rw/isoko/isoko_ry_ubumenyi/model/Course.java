@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 @Entity
+@Table(name = "courses")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
