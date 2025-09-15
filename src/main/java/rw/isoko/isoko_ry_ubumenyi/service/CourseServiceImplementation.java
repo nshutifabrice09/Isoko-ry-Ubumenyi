@@ -7,6 +7,7 @@ import rw.isoko.isoko_ry_ubumenyi.repository.CourseRepository;
 import rw.isoko.isoko_ry_ubumenyi.repository.UserRepository;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class CourseServiceImplementation implements CourseService{
@@ -20,7 +21,7 @@ public class CourseServiceImplementation implements CourseService{
         this.userRepository = userRepository;
     }
     @Override
-    public Course saveCourse(Course course, Long instructorId) {
+    public Course saveCourse(Course course, UUID instructorId) {
         return null;
     }
 
