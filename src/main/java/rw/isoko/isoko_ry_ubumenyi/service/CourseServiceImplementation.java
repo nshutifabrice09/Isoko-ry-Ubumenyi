@@ -44,7 +44,7 @@ public class CourseServiceImplementation implements CourseService{
         if(existCourse != null){
             existCourse.setTitle(course.getTitle());
             existCourse.setDescription(course.getDescription());
-            return courseRepository.save(existCourse)
+            return courseRepository.save(existCourse);
         }
         return null;
     }
