@@ -29,21 +29,28 @@ public class AssignmentServiceImplementation implements AssignmentService{
 
     @Override
     public List<Assignment> getAllAssignments() {
-        return null;
+        return assignmentRepository.findAll();
     }
 
     @Override
     public Assignment getAssignment(UUID id) {
-        return null;
+        return assignmentRepository.findAssignmentById(id);
     }
 
     @Override
     public Assignment updateAssignment(UUID id, Assignment assignment) {
+        Assignment existAssignment = assignmentRepository.findAssignmentById(id);
+        if(existAssignment != null){
+            existAssignment.setTitle(assignment.getTitle());
+            existAssignment.setDescription(assignment.getDescription());
+            existAssignment.setDueDate(assignment.getDueDate());
+            return assignmentRepository.save(existAssignment);
+        }
         return null;
     }
 
     @Override
     public void remove(UUID id) {
-
+        assignmentRepository.deleteById(id);
     }
 }
