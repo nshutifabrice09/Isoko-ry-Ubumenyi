@@ -8,7 +8,7 @@ import java.util.UUID;
 public interface QuestionService {
     Question saveQuestion(Question question, UUID quizId);
     List <Question> getAllQuestion();
-    Question getQuestion(Long UUID);
-    Question updateQuestion(Long UUID, Question question);
-    void removeQuestion(Long UUID);
+    Question getQuestion(UUID id);
+    Question updateQuestion(UUID id, Question question);
+    void removeQuestion(UUID id);
 }

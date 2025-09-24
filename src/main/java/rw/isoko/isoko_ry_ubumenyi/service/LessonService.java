@@ -8,7 +8,7 @@ import java.util.UUID;
 public interface LessonService {
     Lesson saveLesson(Lesson lesson, UUID courseId);
     List<Lesson> getAllLessons();
-    Lesson getLesson(Long UUID);
-    Lesson updatLesson(Long UUID, Lesson lesson);
-    void removeLesson(Long UUID);
+    Lesson getLesson(UUID id);
+    Lesson updatLesson(UUID id, Lesson lesson);
+    void removeLesson(UUID id);
 }

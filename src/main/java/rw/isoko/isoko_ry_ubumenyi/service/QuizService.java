@@ -8,7 +8,7 @@ import java.util.UUID;
 public interface QuizService {
     Quiz saveQuiz(Quiz quiz, UUID courseId);
     List<Quiz> getAllQuizzes();
-    Quiz getQuiz(Long UUID);
-    Quiz updateQuiz(Long UUID, Quiz quiz);
-    void removeQuiz(Long UUID);
+    Quiz getQuiz(UUID id);
+    Quiz updateQuiz(UUID id, Quiz quiz);
+    void removeQuiz(UUID id);
 }
