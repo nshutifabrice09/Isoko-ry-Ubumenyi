@@ -1,5 +1,6 @@
 package rw.isoko.isoko_ry_ubumenyi.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import rw.isoko.isoko_ry_ubumenyi.model.Course;
 import rw.isoko.isoko_ry_ubumenyi.model.Quiz;
@@ -14,6 +15,7 @@ public class QuizServiceImplementation implements QuizService{
     private final QuizRepository quizRepository;
     private final CourseRepository courseRepository;
 
+    @Autowired
     public QuizServiceImplementation(QuizRepository quizRepository, CourseRepository courseRepository) {
         this.quizRepository = quizRepository;
         this.courseRepository = courseRepository;
