@@ -19,21 +19,25 @@ public class UserServiceImplementation implements UserService{
 
     @Override
     public User saveUser(User user) {
-        return null;
+        return userRepository.save(user);
     }
 
     @Override
     public List<User> getAllUsers() {
-        return null;
+        return userRepository.findAll();
     }
 
     @Override
     public User getUser(UUID id) {
-        return null;
+        return userRepository.findUserById(id);
     }
 
     @Override
     public User updateUser(UUID id, User user) {
+        User existUser = userRepository.findUserById(id);
+        if(existUser != null){
+            existUser.set
+        }
         return null;
     }
 
