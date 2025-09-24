@@ -36,13 +36,17 @@ public class UserServiceImplementation implements UserService{
     public User updateUser(UUID id, User user) {
         User existUser = userRepository.findUserById(id);
         if(existUser != null){
-            existUser.set
+            existUser.setFullName(user.getFullName());
+            existUser.setEmail(user.getEmail());
+            existUser.setPassword(user.getPassword());
+            existUser.setRole(user.getRole());
+            return userRepository.save(existUser);
         }
         return null;
     }
 
     @Override
     public void removeUser(UUID id) {
-
+        userRepository.deleteById(id);
     }
 }
