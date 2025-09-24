@@ -8,4 +8,5 @@ import java.util.UUID;
 
 @Repository
 public interface LessonRepository extends JpaRepository <Lesson, UUID> {
+    Lesson findLessonById(UUID id);
 }
