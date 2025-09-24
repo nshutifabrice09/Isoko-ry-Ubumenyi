@@ -1,5 +1,6 @@
 package rw.isoko.isoko_ry_ubumenyi.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import rw.isoko.isoko_ry_ubumenyi.model.Assignment;
 import rw.isoko.isoko_ry_ubumenyi.model.Course;
@@ -15,6 +16,7 @@ public class AssignmentServiceImplementation implements AssignmentService{
     private final AssignmentRepository assignmentRepository;
     private final CourseRepository courseRepository;
 
+    @Autowired
     public AssignmentServiceImplementation(AssignmentRepository assignmentRepository, CourseRepository courseRepository) {
         this.assignmentRepository = assignmentRepository;
         this.courseRepository = courseRepository;
