@@ -52,6 +52,6 @@ public class LessonServiceImplementation implements LessonService{
 
     @Override
     public void removeLesson(UUID id) {
-    lessonRepository.deleteById(id);
+        lessonRepository.deleteById(id);
     }
 }
