@@ -3,6 +3,7 @@ package rw.isoko.isoko_ry_ubumenyi.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import rw.isoko.isoko_ry_ubumenyi.model.Course;
+import rw.isoko.isoko_ry_ubumenyi.model.User;
 import rw.isoko.isoko_ry_ubumenyi.repository.CourseRepository;
 import rw.isoko.isoko_ry_ubumenyi.repository.UserRepository;
 
@@ -22,26 +23,30 @@ public class CourseServiceImplementation implements CourseService{
     }
     @Override
     public Course saveCourse(Course course, UUID instructorId) {
-        return null;
+        User user = userRepository.findUserById(instructorId);
+        course.setInstructor(user);
+        return courseRepository.save(course);
     }
 
     @Override
     public List<Course> getAllCourses() {
+        return courseRepository.findAll();
+    }
+
+    @Override
+    public Course getCourse(UUID id) {
+        return courseRepository.findCourseById(id);
+    }
+
+    @Override
+    public Course updateCourse(UUID id, Course course) {
         return null;
     }
 
     @Override
-    public Course getCourse(Long UUID) {
-        return null;
-    }
-
-    @Override
-    public Course updateCourse(Long UUID, Course course) {
-        return null;
-    }
-
-    @Override
-    public void removeCourse(Long UUID) {
+    public void removeCourse(UUID id) {
 
     }
+
+
 }

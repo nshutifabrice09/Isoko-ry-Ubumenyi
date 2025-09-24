@@ -8,8 +8,8 @@ import java.util.UUID;
 public interface CourseService {
     Course saveCourse (Course course, UUID instructorId);
     List <Course> getAllCourses();
-    Course getCourse(Long UUID);
-    Course updateCourse(Long UUID, Course course);
-    void removeCourse(Long UUID);
+    Course getCourse(UUID id);
+    Course updateCourse(UUID id, Course course);
+    void removeCourse(UUID id);
 
 }
