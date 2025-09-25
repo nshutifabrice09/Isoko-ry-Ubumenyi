@@ -1,5 +1,6 @@
 package rw.isoko.isoko_ry_ubumenyi.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
@@ -31,6 +32,7 @@ public class Course {
     private User instructor;
 
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Lesson> lessons;
 
     public UUID getId() {

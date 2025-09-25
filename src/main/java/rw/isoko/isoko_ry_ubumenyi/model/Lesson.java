@@ -1,5 +1,6 @@
 package rw.isoko.isoko_ry_ubumenyi.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
@@ -29,6 +30,7 @@ public class Lesson {
 
     @ManyToOne
     @JoinColumn(name = "course_id")
+    @JsonBackReference
     private Course course;
 
     public UUID getId() {
