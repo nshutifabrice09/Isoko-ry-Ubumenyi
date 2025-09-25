@@ -1,9 +1,11 @@
 package rw.isoko.isoko_ry_ubumenyi.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import rw.isoko.isoko_ry_ubumenyi.model.User;
 import rw.isoko.isoko_ry_ubumenyi.service.UserService;
+
+import java.util.List;
 
 @RestController
 @CrossOrigin("http://lococalhost:3000")
@@ -14,5 +16,15 @@ public class UserController {
     @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
+    }
+
+    @PostMapping("/user")
+    public User saveUser(@RequestBody User user){
+        return userService.saveUser(user);
+    };
+
+    @GetMapping("/users")
+    public List<User> userList(){
+        return userService.getAllUsers();
     }
 }
