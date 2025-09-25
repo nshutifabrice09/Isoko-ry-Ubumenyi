@@ -38,4 +38,9 @@ public class UserController {
     public User updateUser(@PathVariable ("id") UUID id, @RequestBody User user){
         return userService.updateUser(id, user);
     }
+
+    @DeleteMapping("/delete/user/{id}")
+    public void removeUser(@PathVariable ("id") UUID id){
+        userService.removeUser(id);
+    }
 }
