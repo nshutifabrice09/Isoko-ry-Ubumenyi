@@ -28,4 +28,5 @@ public class AssignmentController {
     public List<Assignment> assignmentList(){
         return assignmentService.getAllAssignments();
     }
+
 }
