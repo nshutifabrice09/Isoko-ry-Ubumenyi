@@ -6,6 +6,7 @@ import rw.isoko.isoko_ry_ubumenyi.model.User;
 import rw.isoko.isoko_ry_ubumenyi.service.UserService;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @CrossOrigin("http://lococalhost:3000")
@@ -21,10 +22,15 @@ public class UserController {
     @PostMapping("/user")
     public User saveUser(@RequestBody User user){
         return userService.saveUser(user);
-    };
+    }
 
     @GetMapping("/users")
     public List<User> userList(){
         return userService.getAllUsers();
+    }
+
+    @GetMapping("/user/{id}")
+    public User getUser(@PathVariable ("id") UUID id){
+        return userService.getUser(id);
     }
 }
