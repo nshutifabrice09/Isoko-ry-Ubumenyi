@@ -1,5 +1,6 @@
 package rw.isoko.isoko_ry_ubumenyi.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -26,6 +27,7 @@ public class Quiz {
     private Course course;
 
     @OneToMany(mappedBy = "quiz", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Question> questions;
 
     public UUID getId() {
