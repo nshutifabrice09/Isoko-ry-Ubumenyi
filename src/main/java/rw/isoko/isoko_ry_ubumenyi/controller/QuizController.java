@@ -21,6 +21,6 @@ public class QuizController {
 
     @PostMapping("/quiz/{courseId}")
     public Quiz saveQuiz(@RequestBody Quiz quiz, @PathVariable ("courseId")UUID courseId){
-        
+        return quizService.saveQuiz(quiz, courseId);
     }
 }
