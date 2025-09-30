@@ -29,4 +29,19 @@ public class EnrollmentController {
     public List<Enrollment> enrollmentList(){
         return enrollmentService.getAllEnrollments();
     }
+
+    @GetMapping("/enrollment/{id}")
+    public Enrollment getEnrollment(@PathVariable ("id") UUID id){
+        return enrollmentService.getEnrollment(id);
+    }
+    @PutMapping("/update/enrollment/{id}")
+    public Enrollment updateEnrollment(@PathVariable ("id") UUID id, @RequestBody Enrollment enrollment){
+        return enrollmentService.updateEnrollment(id, enrollment);
+    }
+
+    @DeleteMapping("/delete/enrollment/{id}")
+    public void deleteEnrollment(@PathVariable ("id") UUID id){
+        enrollmentService.remove(id);
+    }
+
 }

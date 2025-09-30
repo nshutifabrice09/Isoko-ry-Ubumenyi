@@ -9,6 +9,6 @@ public interface LessonService {
     Lesson saveLesson(Lesson lesson, UUID courseId);
     List<Lesson> getAllLessons();
     Lesson getLesson(UUID id);
-    Lesson updatLesson(UUID id, Lesson lesson);
+    Lesson updateLesson(UUID id, Lesson lesson);
     void removeLesson(UUID id);
 }

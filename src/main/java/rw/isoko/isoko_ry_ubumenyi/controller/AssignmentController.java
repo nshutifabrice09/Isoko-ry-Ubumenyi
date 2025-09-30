@@ -29,4 +29,18 @@ public class AssignmentController {
         return assignmentService.getAllAssignments();
     }
 
+    @GetMapping("/assignment/{id}")
+    public Assignment getAssignment(@PathVariable ("id") UUID id){
+        return assignmentService.getAssignment(id);
+    }
+
+    @PutMapping("/update/assignment/{id}")
+    public Assignment updateAssignment(@PathVariable ("id") UUID id, @RequestBody Assignment assignment){
+        return assignmentService.updateAssignment(id, assignment);
+    }
+
+    @DeleteMapping("/delete/assignment/{id}")
+    public void deleteCourse(@PathVariable ("id") UUID id){
+        assignmentService.remove(id);
+    }
 }

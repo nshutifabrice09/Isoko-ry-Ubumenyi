@@ -39,7 +39,7 @@ public class LessonServiceImplementation implements LessonService{
     }
 
     @Override
-    public Lesson updatLesson(UUID id, Lesson lesson) {
+    public Lesson updateLesson(UUID id, Lesson lesson) {
          Lesson existLesson = lessonRepository.findLessonById(id);
          if(existLesson != null){
              existLesson.setTitle(lesson.getTitle());

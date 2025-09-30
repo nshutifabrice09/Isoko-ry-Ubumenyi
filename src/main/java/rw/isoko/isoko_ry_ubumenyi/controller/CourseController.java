@@ -28,4 +28,20 @@ public class CourseController {
     public List<Course> courseList(){
         return courseService.getAllCourses();
     }
+
+
+    @GetMapping("/course/{id}")
+    public Course getCourse(@PathVariable ("id") UUID id){
+        return courseService.getCourse(id);
+    }
+
+    @PutMapping("/update/course/{id}")
+    public Course updateCourse(@PathVariable ("id") UUID id, @RequestBody Course course){
+        return courseService.updateCourse(id, course);
+    }
+
+    @DeleteMapping("/delete/course/{id}")
+    public void deleteCourse(@PathVariable ("id") UUID id){
+        courseService.removeCourse(id);
+    }
 }
