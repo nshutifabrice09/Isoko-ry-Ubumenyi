@@ -26,7 +26,7 @@ public class QuestionController {
 
     @GetMapping("/questions")
     public List<Question> questionList(){
-        return questionService.getAllQuestion();
+        return questionService.getAllQuestions();
     }
 
     @GetMapping("/question/{id}")
