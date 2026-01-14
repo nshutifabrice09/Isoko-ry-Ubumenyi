@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
+@RequestMapping("/submission")
 @CrossOrigin("http://localhost:3000")
 public class SubmissionController {
 
@@ -19,29 +20,29 @@ public class SubmissionController {
         this.submissionService = submissionService;
     }
 
-    @PostMapping("/submission/{studentId}/{assignmentId}")
+    @PostMapping("/{studentId}/{assignmentId}")
     public Submission saveSubmission(@RequestBody Submission submission,
                                      @PathVariable ("studentId")UUID studentId,
                                      @PathVariable ("assignmentId") UUID assignmentId){
         return submissionService.saveSubmission(submission, studentId, assignmentId);
     }
 
-    @GetMapping("/submissions")
+    @GetMapping("/list")
     public List<Submission> submissionList(){
         return submissionService.getAllSubmissions();
     }
 
-    @GetMapping("/submission/{id}")
+    @GetMapping("/{id}")
     public Submission getSubmission(@PathVariable ("id") UUID id){
         return submissionService.getSubmission(id);
     }
 
-    @PutMapping("/update/submission/{id}")
+    @PutMapping("/update/{id}")
     public Submission updateSubmission(@PathVariable ("id") UUID id, @RequestBody Submission submission){
         return submissionService.updateSubmission(id, submission);
     }
 
-    @DeleteMapping("/delete/submission/{id}")
+    @DeleteMapping("/delete/{id}")
     public void deleteSubmission(@PathVariable ("id") UUID id){
         submissionService.remove(id);
     }
