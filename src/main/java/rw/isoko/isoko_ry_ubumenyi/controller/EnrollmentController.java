@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
+@RequestMapping("/enrollment")
 @CrossOrigin("http://localhost:3000")
 public class EnrollmentController {
 
@@ -19,27 +20,27 @@ public class EnrollmentController {
         this.enrollmentService = enrollmentService;
     }
 
-    @PostMapping("/enrollment/{userId}/{courseId}")
+    @PostMapping("/{userId}/{courseId}")
     public Enrollment saveEnrollment(@RequestBody Enrollment enrollment,
                                      @PathVariable ("userId") UUID userId, @PathVariable ("courseId") UUID courseId){
         return enrollmentService.saveEnrollment(enrollment, userId, courseId);
     }
 
-    @GetMapping("/enrollments")
+    @GetMapping("/list")
     public List<Enrollment> enrollmentList(){
         return enrollmentService.getAllEnrollments();
     }
 
-    @GetMapping("/enrollment/{id}")
+    @GetMapping("/{id}")
     public Enrollment getEnrollment(@PathVariable ("id") UUID id){
         return enrollmentService.getEnrollment(id);
     }
-    @PutMapping("/update/enrollment/{id}")
+    @PutMapping("/update/{id}")
     public Enrollment updateEnrollment(@PathVariable ("id") UUID id, @RequestBody Enrollment enrollment){
         return enrollmentService.updateEnrollment(id, enrollment);
     }
 
-    @DeleteMapping("/delete/enrollment/{id}")
+    @DeleteMapping("/delete/{id}")
     public void deleteEnrollment(@PathVariable ("id") UUID id){
         enrollmentService.remove(id);
     }
