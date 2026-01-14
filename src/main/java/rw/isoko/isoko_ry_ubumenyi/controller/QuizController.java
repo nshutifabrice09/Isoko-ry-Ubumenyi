@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
+@RequestMapping("/quiz")
 @CrossOrigin("http://localhost:3000")
 public class QuizController {
 
@@ -20,27 +21,27 @@ public class QuizController {
         this.quizService = quizService;
     }
 
-    @PostMapping("/quiz/{courseId}")
+    @PostMapping("/{courseId}")
     public Quiz saveQuiz(@RequestBody Quiz quiz, @PathVariable ("courseId")UUID courseId){
         return quizService.saveQuiz(quiz, courseId);
     }
 
-    @GetMapping("/quizzes")
+    @GetMapping("/list")
     public List<Quiz> quizList(){
         return quizService.getAllQuizzes();
     }
 
-    @GetMapping("/quiz/{id}")
+    @GetMapping("/{id}")
     public Quiz getQuiz(@PathVariable("id") UUID id){
         return quizService.getQuiz(id);
     }
 
-    @PutMapping("/update/quiz/{id}")
+    @PutMapping("/update/{id}")
     public Quiz updateQuiz(@PathVariable("id") UUID id, @RequestBody Quiz quiz){
         return quizService.updateQuiz(id, quiz);
     }
 
-    @DeleteMapping("/delete/quiz/{id}")
+    @DeleteMapping("/delete/{id}")
     public void deleteQuiz(@PathVariable ("id") UUID id){
         quizService.removeQuiz(id);
     }
