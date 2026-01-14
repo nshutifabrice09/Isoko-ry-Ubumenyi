@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
+@RequestMapping("/question")
 @CrossOrigin("http://localhost:3000")
 public class QuestionController {
 
@@ -19,27 +20,27 @@ public class QuestionController {
         this.questionService = questionService;
     }
 
-    @PostMapping("/question/{quizId}")
+    @PostMapping("/{quizId}")
     public Question saveQuestion(@RequestBody Question question, @PathVariable ("quizId")UUID quizId){
         return questionService.saveQuestion(question, quizId);
     }
 
-    @GetMapping("/questions")
+    @GetMapping("/list")
     public List<Question> questionList(){
         return questionService.getAllQuestions();
     }
 
-    @GetMapping("/question/{id}")
+    @GetMapping("/{id}")
     public Question getQuestion(@PathVariable ("id") UUID id){
         return questionService.getQuestion(id);
     }
 
-    @PutMapping("/update/question/{id}")
+    @PutMapping("/update/{id}")
     public Question updateQuestion(@PathVariable ("id") UUID id, @RequestBody Question question){
         return questionService.updateQuestion(id, question);
     }
 
-    @DeleteMapping("/delete/question/{id}")
+    @DeleteMapping("/delete/{id}")
     public void deleteQuestion(@PathVariable ("id") UUID id){
         questionService.removeQuestion(id);
     }
